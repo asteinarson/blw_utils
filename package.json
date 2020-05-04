@@ -1,6 +1,6 @@
 {
-    "name": "blw_utils",
-    "version": "0.0.6",
+    "name": "@blw/utils",
+    "version": "0.0.7",
     "description": "Utility functions",
     "type": "module",
     "main": "./dist/index.js",
