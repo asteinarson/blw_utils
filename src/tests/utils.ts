@@ -1,4 +1,4 @@
-import { toCamelCase, toPascalCase, protoFromUrl } from "../utils";
+import { toCamelCase, toPascalCase, protoFromUrl } from "../str";
 
 import * as u from "../utils";
 
@@ -90,7 +90,11 @@ test("aTop", () => {
 
 test("dateToNumbers", () => {
     let d = new Date(1987, 9, 13);
-    expect(u.dateToNumbers(d)).toStrictEqual({ year: 1987, month: 9, day_of_month: 13 });
+    expect(u.dateToNumbers(d)).toStrictEqual({
+        year: 1987,
+        month: 9,
+        day_of_month: 13,
+    });
     expect(u.dateTo10CharString(d)).toBe("1987-10-13");
     d = new Date(2014, 0, 4);
     expect(u.dateTo10CharString(d)).toBe("2014-01-04");
