@@ -1,6 +1,6 @@
 export type ObserverFn<T> = (t: T) => any;
 
-import { Dict } from "./gen_utils.js";
+import { Dict } from "./gen_utils";
 let observers: Dict<ObserverFn<any>[]> = {};
 
 export function observe<T>(key: string, f: ObserverFn<T>) {

@@ -1,5 +1,5 @@
-import { isEmptyObject, isEmpty } from "./utils.js";
-import { Dict } from "./gen_utils.js";
+import { isEmptyObject, isEmpty } from "./utils";
+import { Dict } from "./gen_utils";
 
 let promises: Dict<Promise<any>> = {};
 
