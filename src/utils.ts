@@ -1,28 +1,3 @@
-export function toCamelCase(s: string) {
-    let parts = s.split("_");
-    parts[0] = parts[0][0].toLowerCase() + parts[0].slice(1);
-    let r = parts[0];
-    for (let ix = 1; ix < parts.length; ix++) {
-        r += parts[ix][0].toUpperCase() + parts[ix].slice(1);
-    }
-    return r;
-}
-
-export function toPascalCase(s: string) {
-    let parts = s.split("_");
-    let r = "";
-    for (let ix = 0; ix < parts.length; ix++) {
-        r += parts[ix][0].toUpperCase() + parts[ix].slice(1);
-    }
-    return r;
-}
-
-let proto_re = new RegExp("^(\\w+)://");
-export function protoFromUrl(url: string) {
-    let r = proto_re.exec(url);
-    return r && r.length > 0 ? r[1] : "";
-}
-
 // A fully permissive object
 export type AnyObject = { [k: string]: any };
 
@@ -142,7 +117,10 @@ export function aSum(v: Array<Object>, prop?: string): number {
             return a + (o[prop] ? Number(o[prop]) : 0);
         }, 0);
     } else {
-        return v.reduce<number>((a: number, n: any): number => a + Number(n), 0);
+        return v.reduce<number>(
+            (a: number, n: any): number => a + Number(n),
+            0
+        );
     }
 }
 
@@ -183,7 +161,11 @@ export function dateTo10CharString(d: Date | string, sep = "-") {
     let a: (string | number)[] = [];
     if (typeof d !== "string") {
         let dn = dateToNumbers(d);
-        a = [dn.year, ("0" + (dn.month + 1)).slice(-2), ("0" + dn.day_of_month).slice(-2)];
+        a = [
+            dn.year,
+            ("0" + (dn.month + 1)).slice(-2),
+            ("0" + dn.day_of_month).slice(-2),
+        ];
     } else {
         let r = re_date_compressed.exec(d);
         if (r) {
