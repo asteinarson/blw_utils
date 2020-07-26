@@ -11,7 +11,9 @@
         "./error": "./dist/error.js",
         "./gen_utils": "./dist/gen_utils.js",
         "./observer": "./dist/observer.js",
-        "./promise_sync": "./dist/promise_sync.js"
+        "./promise_sync": "./dist/promise_sync.js",
+	"./file": "dist/file.js",
+	"./json": "dist/json.js"
     },
     "scripts": {
         "jest-test": "jest"
