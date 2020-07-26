@@ -48,11 +48,11 @@ export function setErrorLogLevel(log_error: LogError, _log_what?: LogWhat) {
     }
 }
 
-export function severityLog(
+export function severityLog<T>(
     severity: Severity,
     short: string,
     long?: any,
-    ret_val?: any
+    ret_val?: T
 ) {
     if (!log_what[severity]) return ret_val;
 
@@ -69,7 +69,11 @@ export function severityLog(
     return ret_val;
 }
 
-export function errorLog(short_error: string, long_error?: any, ret_val?: any) {
+export function errorLog<T>(
+    short_error: string,
+    long_error?: any,
+    ret_val?: T
+) {
     return severityLog(Severity.Error, short_error, long_error, ret_val);
 }
 
