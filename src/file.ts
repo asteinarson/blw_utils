@@ -14,8 +14,7 @@ export function ensureDir(dir: string) {
 export function findDirWith(file: string, from?: string) {
     if (!from) from = process.cwd();
     while (true) {
-        if (fs.existsSync(from + "/" + file))
-            return path.normalize(from + "/" + file);
+        if (fs.existsSync(from + "/" + file)) return path.normalize(from);
         if (path.normalize(from) == "/") return null;
         from += "/..";
     }
